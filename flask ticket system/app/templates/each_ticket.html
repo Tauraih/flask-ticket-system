@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block app_content %}
+
+{#<h1>Ticket: {{ id }}</h1>#}
+{#    <div>#}
+{#    <p>{{ username }}</p>#}
+{#    <p>{{ content }}</p>#}
+{#    <p>{{ file }}</p>#}
+{#    <p>{{ department }}</p>#}
+{#    <p>{{ priority }}</p>#}
+{#    </div>#}
+{#    {% endfor %}#}
+<form action="" method="post">
+{{ form.hidden_tag() }}
+        <p>
+            {{ form.status.label }}<br>
+            {{ form.status() }}
+            {% for error in form.status.errors %}
+            [{{ error }}]
+            {% endfor %}
+        </p>
+</form>
+{% endblock %}

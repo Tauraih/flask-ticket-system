@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h3>Hi, {{ user.name }}</h3>
+    <p>Ticket opened on {{ user.timestamp }}</p>
+    <p>Status: {{ user.status }}</p>
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+{#{% for single in single %}#}
+    <h1>[Ticket: {{ single.id }}]</h1>
+    <div>
+        <p>Title: <a href="ticket.html"> {{ single.title }}</a></p>
+    <p>Content: {{ single.content }}</p>
+    <p>{{ single.file }}</p>
+    <p>Queue: {{ single.department }}</p>
+    <p>{{ single.queue  }}</p>
+    </div>
+{#    {% endfor %}#}
+
+ <form action="" method="post" action="{{ url_for('update') }}">
+    {{ form.hidden_tag() }}
+        <p>
+            {{ form.status.label }}<br>
+            {{ form.status() }}
+            {% for error in form.status.errors %}
+            [{{ error }}]
+            {% endfor %}
+{#            <input type="hidden" name="id" value="1">#}
+{#            <input type="text" name="status" placeholder="Update Status">#}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+ </form>
+</div>
+{% endblock %}

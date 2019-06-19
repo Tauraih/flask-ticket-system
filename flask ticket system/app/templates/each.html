@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block app_content %}
+<div class="container">
+{#{% for single in single %}#}
+    <h1>[{{ point.department }}-{{ point.id }}]</h1>
+    <div>
+        <p>Title: {{ point.title }}</p>
+    <p>Content: {{ point.content }}</p>
+    <p>{{ point.file }}</p>
+    <p>Queue: {{ point.department }}</p>
+    <p>Status:{{ point.status  }}</p>
+    </div>
+{#    {% endfor %}#}
+     <form action="" method="post" action="{{ url_for('update') }}">
+    {{ form.hidden_tag() }}
+        <p>
+            {{ form.status.label }}<br>
+            {{ form.status() }}
+            {% for error in form.status.errors %}
+            [{{ error }}]
+            {% endfor %}
+{#            <input type="hidden" name="id" value="1">#}
+{#            <input type="text" name="status" placeholder="Update Status">#}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+ </form>
+</div>
+{% endblock %}

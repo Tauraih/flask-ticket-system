@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Dear {{ user.name }}</h3>
+
+<p>A request for supported has been created and assigned {{ user.id }}.
+A representative will follow-up with you as soon as possible.
+You can <a href='{{ url_for('check_ticket_progress', id=id, token=token, _external=True) }}'>view this ticket's progress online</a></p>
+
+
+<p>Sincerely,</p>
+
+<p>The Aman Team,</p>
+<p>Support Department</p>
+</body>
+</html>

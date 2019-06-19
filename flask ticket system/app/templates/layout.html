@@ -1,0 +1,70 @@
+<html>
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+    {% if title %} {{ title }} - Ticket System {% else %} My Ticket System {% endif %}
+{% endblock %}
+
+    {% block navbar %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <nav class="navbar navbar-default rr">
+             <div class="container">
+                   <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="{{ url_for('index') }}">MAPUTSA</a>
+                   </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="{{ url_for('dashboard') }}"><span class="glyphicon glyphicon-dashboard"></span>Dashboard</a></li>
+                                <li><a href="{{ url_for('tickets') }}"><span class="glyphicon glyphicon-plus"></span>New Ticket</a></li>
+                                <li><a href="{{ url_for('stats') }}"><span class="glyphicon glyphicon-stats"></span>Stats</a></li>
+                                <li><a href="{{ url_for('kb') }}"><span class="glyphicon glyphicon-book"></span>Knowledge Base </a></li>
+                        </ul>
+{#                            </li>#}
+                    {#        {% if g.search_form %}#}
+                    {#        <form class="navbar-form navbar-left" method="get" action="{{ url_for('search') }}">#}
+                    {#            <div class="form-group">#}
+                    {#                {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}#}
+                    {#            </div>#}
+                    {#        </form>#}
+                    {#        {% endif %}#}
+                            <ul class="nav navbar-nav navbar-right">
+                                {% if current_user.is_anonymous %}
+                                 <li><a href="{{ url_for('login') }}">Login</a></li>
+                                {% else %}
+                                 <li><a href="{{ url_for('user', username=current_user.username) }}">{{ current_user.username }}</a></li>
+                                  <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                                {% endif %}
+                            </ul>
+                    </div>
+            </div>
+        </nav>
+        <div class="alert container alert-info">
+            <p>Welcome to Flask Help-Desk. <br>
+            You can login with username <strong>demo</strong> password <strong>demo</strong></p>
+            <strong>Please Note!</strong> The demo user can not add attachments at this time.
+        </div>
+    {% endblock %}
+    {% block content %}
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% block app_content %}{% endblock %}
+    </div>
+</body>
+<footer class="page-footer font-small blue fixed-bottom">
+{#    <script src="static/app.js"></script>#}
+    <div class="footer-copyright text-center py-3">&copy; <script>document.write(new Date().getFullYear())</script>. ALL RIGHTS RESERVED | <a href="https://www.facebook.com/tauraivmaputsa.valentine">MAPUTSA</a></div>
+</footer>
+</html>
+{% endblock %}

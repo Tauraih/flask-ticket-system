@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block app_content %}
+    <h1>Help-Desk</h1>
+    <h2>Knowledge Base</h2>
+    <p>We have listed a number of knowledge base articles. Please check to see if any of these articles address yor problem prior to opening a support ticket.</p>
+{#    <div>#}
+{#    {% if current_user.can(Permission.WRITE_ARTICLES) %}#}
+{#        <form action="" method="post">#}
+{#        {{ form.hidden_tag() }}#}
+{#            <p>#}
+{#                {{ form.body.label }}<br>#}
+{#                {{ form.body }}#}
+{#         {% for error in form.body.errors %}#}
+{#        <span style="color: red;">[{{ error }}]</span>#}
+{#        {% endfor %}#}
+{#            </p>#}
+{#            <p>{{ form.submit() }}</p>#}
+{#        </form>#}
+{#    {% endif %}#}
+{#    </div>#}
+<div>
+        <ul class="kb">
+            {% for post in post %}
+            <li>
+{#                <div>{{ moment(post.timestamp).fromnow() }}</div>#}
+{#                <div>{{ post.author.username }} says</div>#}
+                <div>{{ post.body }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
