@@ -6,13 +6,13 @@
                 <th scope="col">Title</th><th scope="col">Priority</th><th scope="col">Queue</th><th scope="col">Created</th><th scope="col">Due Date</th><th scope="col">Status</th>
             </tr>
         </thead>
-    {% for items in items %}
         <tbody>
+    {% for items in items %}
             <tr>
                 <td><a href="{{ url_for('each', id=items.id) }}">{{ items.title }}</a></td><td>{{ items.priority }}</td><td>{{ items.department }}</td><td>{{ items.timestamp }}</td><td>{{ items.due_date }}</td><td>{{ items.status }}</td><br>
             </tr>
-        </tbody>
     {% endfor %}
+        </tbody>
     </table>
 
 
