@@ -15,8 +15,8 @@ class Config(object):
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = 'todayy06@gmail.com'
-    MAIL_PASSWORD = '0416676504'
+    MAIL_USERNAME = 'test@gmail.com'
+    MAIL_PASSWORD = '*********'
     ADMINS = ['todayy06@gmail.com']
 
     # img uploads
