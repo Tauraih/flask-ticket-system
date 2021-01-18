@@ -9,7 +9,7 @@
         <tbody>
     {% for items in items %}
             <tr>
-                <td><a href="{{ url_for('each', id=items.id) }}">{{ items.title }}</a></td><td>{{ items.priority }}</td><td>{{ items.department }}</td><td>{{ items.timestamp }}</td><td>{{ items.due_date }}</td><td>{{ items.status }}</td><br>
+                <td><a href="{{ url_for('each', id=items.id) }}">{{ items.title }}</a></td><td>{{ items.priority }}</td><td>{{ items.department }}</td><td>{{ items.timestamp }}</td><td>{{ items.due_date }}</td><td>{{ items.status }}</td>
             </tr>
     {% endfor %}
         </tbody>
