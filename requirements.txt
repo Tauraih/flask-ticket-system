@@ -6,7 +6,7 @@ bleach==3.3.0
 blinker==1.4
 DateTime==4.3
 elasticsearch==7.9.1
-Flask==1.0.3
+Flask==2.3.2
 Flask-Babel==0.12.2
 Flask-Bleach==0.0.2
 Flask-Bootstrap==3.3.7.1
